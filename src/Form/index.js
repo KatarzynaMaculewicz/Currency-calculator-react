@@ -9,9 +9,17 @@ const Form = () => {
   const [fromCurrency, setFromCurrency] = useState(currencies[0].rate);
   const [toCurrency, setToCurrency] = useState(currencies[0].rate);
   const [amount, setAmount] = useState("");
+  const [result, setResult] = useState((0.0).toFixed(2));
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+
+    calculateResult(amount, fromCurrency, toCurrency);
+  };
+
+  const calculateResult = (amount, fromCurrency, toCurrency) => {
+    const calculationResult = (amount / fromCurrency) * toCurrency;
+    setResult(`${calculationResult.toFixed(2)}`);
   };
 
   return (
@@ -20,7 +28,7 @@ const Form = () => {
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency conwenter</legend>
         <div>
-          <label className="form__label">From: {fromCurrency}</label>
+          <label className="form__label">From:</label>
           <select
             className="form__select"
             name="fromCurrency"
@@ -36,7 +44,7 @@ const Form = () => {
           </select>
         </div>
         <p>
-          <label className="form__label">Amount*: {amount}</label>
+          <label className="form__label">Amount*:</label>
           <input
             className="form__input"
             type="number"
@@ -49,7 +57,7 @@ const Form = () => {
           />
         </p>
         <p>
-          <label className="form__label">To: {toCurrency}</label>
+          <label className="form__label">To:</label>
           <select
             className="form__select"
             name="toCurrency"
@@ -65,7 +73,9 @@ const Form = () => {
         </p>
       </fieldset>
       <CalculateButton />
-      <Result />
+      <Result 
+        result={result} 
+      />
       <ResetButton />
     </form>
   );
