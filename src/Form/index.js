@@ -27,7 +27,7 @@ const Form = () => {
       <p className="form__required"> * field required </p>
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency conwenter</legend>
-        <div>
+        <div className="form__selectContainer">
           <label className="form__label">From:</label>
           <select
             className="form__select"
@@ -43,7 +43,7 @@ const Form = () => {
             ;
           </select>
         </div>
-        <p>
+        <p className="form__inputContainer">
           <label className="form__label">Amount*:</label>
           <input
             className="form__input"
@@ -56,7 +56,7 @@ const Form = () => {
             onChange={({ target }) => setAmount(target.value)}
           />
         </p>
-        <p>
+        <p className="form__selectContainer">
           <label className="form__label">To:</label>
           <select
             className="form__select"
