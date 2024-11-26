@@ -9,7 +9,7 @@ const Form = () => {
   const [fromCurrency, setFromCurrency] = useState(currencies[0].rate);
   const [toCurrency, setToCurrency] = useState(currencies[0].rate);
   const [amount, setAmount] = useState("");
-  const [result, setResult] = useState((0.0).toFixed(2));
+  const [result, setResult] = useState(0);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +19,7 @@ const Form = () => {
 
   const calculateResult = (amount, fromCurrency, toCurrency) => {
     const calculationResult = (amount / fromCurrency) * toCurrency;
-    setResult(`${calculationResult.toFixed(2)}`);
+    setResult(`${calculationResult}`);
   };
 
   return (
