@@ -4,6 +4,7 @@ import { useState } from "react";
 import Result from "../Result";
 import ResetButton from "../ResetButton";
 import CalculateButton from "../CalculateButton";
+import CurrentDate from "../CurrentDate";
 
 const Form = () => {
   const [fromCurrency, setFromCurrency] = useState(currencies[0].rate);
@@ -27,6 +28,7 @@ const Form = () => {
       <p className="form__required"> * field required </p>
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency conwenter</legend>
+        <CurrentDate />
         <div className="form__selectContainer">
           <label className="form__label">From:</label>
           <select
