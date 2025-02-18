@@ -1,5 +1,5 @@
-import "./style.css";
 import { useState, useEffect } from "react";
+import { Paragraph } from "./styled";
 
 const CurrentDate = ({ date }) => {
   const [newDate, setNewDate] = useState(new Date());
@@ -24,9 +24,9 @@ const CurrentDate = ({ date }) => {
   });
 
   return (
-      <p className="form__date">
+      <Paragraph>
         {date}
-      </p>
+      </Paragraph>
   );
 };
 

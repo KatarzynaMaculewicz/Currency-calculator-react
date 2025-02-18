@@ -1,4 +1,4 @@
-import "./style.css";
+import { Button, Div } from "./styled";
 
 const ResetButton = () => {
   const reset = () => {
@@ -6,9 +6,8 @@ const ResetButton = () => {
   };
 
   return (
-    <div className="form__buttonDiv">
-      <button
-        className="form__resetButton"
+    <Div>
+      <Button
         type="button"
         onClick={(event) => {
           event.preventDefault();
@@ -16,8 +15,8 @@ const ResetButton = () => {
         }}
       >
         RESET
-      </button>
-    </div>
+      </Button>
+    </Div>
   );
 };
 

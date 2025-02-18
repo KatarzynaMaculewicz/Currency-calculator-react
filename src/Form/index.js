@@ -1,10 +1,10 @@
-import "./style.css";
 import { currencies } from "../currencies";
 import { useState } from "react";
 import Result from "../Result";
 import ResetButton from "../ResetButton";
 import CalculateButton from "../CalculateButton";
 import CurrentDate from "../CurrentDate";
+import { Input, Label, StyledForm, Fieldset, StyledParagraph, InputParagraph, Legend, Select, Container } from "./styled";
 
 const Form = () => {
   const [fromCurrency, setFromCurrency] = useState(currencies[0].rate);
@@ -24,15 +24,14 @@ const Form = () => {
   };
 
   return (
-    <form className="form" onSubmit={onFormSubmit}>
-      <p className="form__required"> * field required </p>
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Currency conwenter</legend>
+    <StyledForm onSubmit={onFormSubmit}>
+      <StyledParagraph> * field required </StyledParagraph>
+      <Fieldset>
+        <Legend>Currency conwenter</Legend>
         <CurrentDate />
-        <div className="form__selectContainer">
-          <label className="form__label">From:</label>
-          <select
-            className="form__select"
+        <Container>
+          <Label>From:</Label>
+          <Select
             name="fromCurrency"
             value={fromCurrency}
             onChange={(event) => setFromCurrency(event.target.value)}
@@ -43,12 +42,11 @@ const Form = () => {
               </option>
             ))}
             ;
-          </select>
-        </div>
-        <p className="form__inputContainer">
-          <label className="form__label">Amount*:</label>
-          <input
-            className="form__input"
+          </Select>
+        </Container>
+        <Container>
+          <Label>Amount*:</Label>
+          <Input
             type="number"
             name="amount"
             min="0"
@@ -57,11 +55,10 @@ const Form = () => {
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
           />
-        </p>
-        <p className="form__selectContainer">
-          <label className="form__label">To:</label>
-          <select
-            className="form__select"
+        </Container>
+        <Container>
+          <Label>To:</Label>
+          <Select
             name="toCurrency"
             value={toCurrency}
             onChange={(event) => setToCurrency(event.target.value)}
@@ -71,15 +68,15 @@ const Form = () => {
                 {currency.name}
               </option>
             ))}
-          </select>
-        </p>
-      </fieldset>
+          </Select>
+        </Container>
+      </Fieldset>
       <CalculateButton />
       <Result 
         result={result} 
       />
       <ResetButton />
-    </form>
+    </StyledForm>
   );
 };
 

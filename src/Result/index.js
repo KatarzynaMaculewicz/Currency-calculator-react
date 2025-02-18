@@ -1,13 +1,13 @@
-import "./style.css";
+import { Div, Span } from "./styled";
 
 const Result = ({ result }) => {
   return (
-    <div className="form__div">
+    <Div>
       <p>
         RESULT: {(+result).toFixed(2)}
-        <span className="form__result"></span>
+        <Span></Span>
       </p>
-    </div>
+    </Div>
   );
 };
 

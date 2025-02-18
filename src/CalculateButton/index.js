@@ -1,7 +1,7 @@
-import "./style.css";
+import { Button } from "./styled";
 
 const CalculateButton = () => (
-  <button className="form__button">CALCULATE</button>
+  <Button>CALCULATE</Button>
 );
 
 export default CalculateButton;
