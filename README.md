@@ -21,6 +21,8 @@ This repository contains a simple currency calculator. The website lets users co
 - ES6 + features
 - JSX
 - React
+- Styled-components
+- Custom Hooks
 
 ## Getting Started with Create React App
 
