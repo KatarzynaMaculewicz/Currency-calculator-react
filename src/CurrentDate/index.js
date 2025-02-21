@@ -1,32 +1,26 @@
-import { useState, useEffect } from "react";
+import { useCurrentDate } from "./useCurrentDate";
 import { Paragraph } from "./styled";
 
-const CurrentDate = ({ date }) => {
-  const [newDate, setNewDate] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setNewDate(new Date());
-    }, 1000);
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
-  date = newDate.toLocaleString(undefined, { 
+const formatDate = (newDate) =>
+  newDate.toLocaleString(undefined, {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
     hour: "numeric",
     minute: "numeric",
-    second: "numeric"
+    second: "numeric",
   });
 
+const CurrentDate = ({ newDate }) => {
+  newDate = useCurrentDate();
+
   return (
+    <>
       <Paragraph>
-        {date}
+        {formatDate(newDate)}
       </Paragraph>
+    </>
   );
 };
 
