@@ -2,9 +2,8 @@ import { currencies } from "../currencies";
 import { useState } from "react";
 import Result from "../Result";
 import ResetButton from "../ResetButton";
-import CalculateButton from "../CalculateButton";
 import CurrentDate from "../CurrentDate";
-import { Input, Label, StyledForm, Fieldset, StyledParagraph, InputParagraph, Legend, Select, Container } from "./styled";
+import { Input, Label, StyledForm, Fieldset, StyledParagraph, Legend, Select, Container,CalculateButton } from "./styled";
 
 const Form = () => {
   const [fromCurrency, setFromCurrency] = useState(currencies[0].rate);
@@ -71,7 +70,7 @@ const Form = () => {
           </Select>
         </Container>
       </Fieldset>
-      <CalculateButton />
+      <CalculateButton>CALCULATE</CalculateButton>
       <Result 
         result={result} 
       />
