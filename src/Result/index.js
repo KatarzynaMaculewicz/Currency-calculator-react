@@ -1,13 +1,13 @@
-import { Div, Span } from "./styled";
+import { ResultContainer, Span } from "./styled";
 
 const Result = ({ result }) => {
   return (
-    <Div>
+    <ResultContainer>
       <p>
         RESULT: {(+result).toFixed(2)}
         <Span></Span>
       </p>
-    </Div>
+    </ResultContainer>
   );
 };
 

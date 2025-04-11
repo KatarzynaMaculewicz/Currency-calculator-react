@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Div = styled.div`
+export const ResultContainer = styled.div`
   width: 80%;
   color: ${({ theme }) => theme.colors.primaryColor};
   font-size: 24px;

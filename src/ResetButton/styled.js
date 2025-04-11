@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Div = styled.div`
+export const ResetButtonContainer = styled.div`
   width: 80%;
   margin: 10px auto;
 `;

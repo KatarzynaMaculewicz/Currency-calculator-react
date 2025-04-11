@@ -1,4 +1,4 @@
-import { Button, Div } from "./styled";
+import { Button, ResetButtonContainer } from "./styled";
 
 const ResetButton = () => {
   const reset = () => {
@@ -6,7 +6,7 @@ const ResetButton = () => {
   };
 
   return (
-    <Div>
+    <ResetButtonContainer>
       <Button
         type="button"
         onClick={(event) => {
@@ -16,7 +16,7 @@ const ResetButton = () => {
       >
         RESET
       </Button>
-    </Div>
+    </ResetButtonContainer>
   );
 };
 

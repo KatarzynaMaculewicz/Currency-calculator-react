@@ -1,5 +1,5 @@
 import { useCurrentDate } from "./useCurrentDate";
-import { Paragraph } from "./styled";
+import { StyledDate } from "./styled";
 
 const formatDate = (newDate) =>
   newDate.toLocaleString(undefined, {
@@ -17,9 +17,9 @@ const CurrentDate = ({ newDate }) => {
 
   return (
     <>
-      <Paragraph>
+      <StyledDate>
         {formatDate(newDate)}
-      </Paragraph>
+      </StyledDate>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Paragraph = styled.p`
+export const StyledDate = styled.p`
   margin-top: -15px;
   text-align: right;
   font-size: small;
