@@ -17,13 +17,22 @@ const Form = () => {
     calculateResult(amount, fromCurrency, toCurrency);
   };
 
+  const onFormReset = (event) => {
+    event.preventDefault();
+
+    setFromCurrency(currencies[0].rate);
+    setToCurrency(currencies[0].rate);
+    setAmount("");
+    setResult(0);
+  };
+
   const calculateResult = (amount, fromCurrency, toCurrency) => {
     const calculationResult = (amount / fromCurrency) * toCurrency;
     setResult(`${calculationResult}`);
   };
 
   return (
-    <StyledForm onSubmit={onFormSubmit}>
+    <StyledForm onSubmit={onFormSubmit} onReset={onFormReset}>
       <StyledParagraph> * field required </StyledParagraph>
       <Fieldset>
         <Legend>Currency conwenter</Legend>
