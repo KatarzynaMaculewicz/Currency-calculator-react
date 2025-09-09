@@ -1,15 +1,28 @@
-import { currencies } from "../currencies";
-import { useState } from "react";
+import { getCurrencies } from "../getCurrencies";
+import { useState, useEffect} from "react";
 import Result from "../Result";
 import ResetButton from "../ResetButton";
 import CurrentDate from "../CurrentDate";
 import { Input, Label, StyledForm, Fieldset, StyledParagraph, Legend, Select, Container,CalculateButton } from "./styled";
 
 const Form = () => {
-  const [fromCurrency, setFromCurrency] = useState(currencies[0].rate);
-  const [toCurrency, setToCurrency] = useState(currencies[0].rate);
+  const [currencies, setCurrencies] = useState([]);
+  const [fromCurrency, setFromCurrency] = useState(0);
+  const [toCurrency, setToCurrency] = useState(0);
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState(0);
+
+  useEffect(() => {
+    async function fetchCurrencies() {
+      const data = await getCurrencies();
+      setCurrencies(data);
+      if (data.length > 0) {
+        setFromCurrency(data[0].rate);
+        setToCurrency(data[0].rate);
+      }
+    }
+    fetchCurrencies();
+  }, []);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -20,8 +33,8 @@ const Form = () => {
   const onFormReset = (event) => {
     event.preventDefault();
 
-    setFromCurrency(currencies[0].rate);
-    setToCurrency(currencies[0].rate);
+    setFromCurrency(0);
+    setToCurrency(0);
     setAmount("");
     setResult(0);
   };
@@ -45,7 +58,7 @@ const Form = () => {
             onChange={(event) => setFromCurrency(event.target.value)}
           >
             {currencies.map((currency) => (
-              <option key={currency.rate} value={currency.rate}>
+              <option key={currency.id} value={currency.rate}>
                 {currency.name}
               </option>
             ))}
@@ -72,7 +85,7 @@ const Form = () => {
             onChange={(event) => setToCurrency(event.target.value)}
           >
             {currencies.map((currency) => (
-              <option key={currency.rate} value={currency.rate}>
+              <option key={currency.id} value={currency.rate}>
                 {currency.name}
               </option>
             ))}
