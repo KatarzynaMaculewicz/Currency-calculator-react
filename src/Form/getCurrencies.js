@@ -6,7 +6,6 @@ export async function getCurrencies() {
 
     const data = response.data.data;
 
-
     const currencies = Object.keys(data).map((code, index) => ({
       id: index + 1,
       name: code,
@@ -15,10 +14,8 @@ export async function getCurrencies() {
 
     currencies.unshift({ id: 0, name: "select currency", rate: 0.0 });
 
-    console.log(currencies);
     return currencies;
   } catch (error) {
-    console.error("Something went wrong", error);
-    return [];
+    throw error;
   }
 }
