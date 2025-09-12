@@ -10,7 +10,7 @@ https://katarzynamaculewicz.github.io/Currency-calculator-react/
 
 ## Description
 
-This repository contains a simple currency calculator. The website lets users convert popular world currencies such as GBP, EUR, USD, and PLN. The interface is easy to use and intuitive.
+This repository contains a simple currency calculator. The website allows users to convert popular global currencies such as GBP, EUR, USD, and PLN. All currency rates come from the public API at https://app.currencyapi.com/. The interface is user-friendly and intuitive.
 
 ## Technologies
 
@@ -23,6 +23,7 @@ This repository contains a simple currency calculator. The website lets users co
 - React
 - Styled-components
 - Custom Hooks
+- API (axios)
 
 ## Getting Started with Create React App
 
