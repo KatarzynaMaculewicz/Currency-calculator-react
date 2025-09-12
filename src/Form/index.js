@@ -3,7 +3,8 @@ import { useState } from "react";
 import Result from "../Result";
 import ResetButton from "../ResetButton";
 import CurrentDate from "../CurrentDate";
-import { Input, Label, StyledForm, Fieldset, StyledParagraph, Legend, Select, Container, CalculateButton } from "./styled";
+import { Input, Label, StyledForm, Fieldset, StyledParagraph, Legend, Select, Container, CalculateButton, Alert } from "./styled";
+import loadingIcon from "../images/loading.gif";
 
 const Form = () => {
   const { rates, loading, error } = useCurrencies();
@@ -34,10 +35,15 @@ const Form = () => {
 
 return (
   loading ? (
-    <p>🚀 Currency data incoming! We’ll be ready in no time 🚀</p>
-  ) : error ? (
-    <p>{error}</p>
-  ) : (
+    <Alert>
+      <p>🚀 Currency data incoming! We’ll be ready in no time 🚀</p>
+      <img src={loadingIcon} alt="loading icon"/>
+    </Alert>)
+  : error ? (
+    <Alert error>
+      <p>{error}</p>
+    </Alert>)
+  : (
     <StyledForm onSubmit={onFormSubmit} onReset={onFormReset}>
         <StyledParagraph>* field required</StyledParagraph>
         <Fieldset>

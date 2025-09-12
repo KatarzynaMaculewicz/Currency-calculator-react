@@ -1,4 +1,29 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+export const Alert = styled.div`
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: 10%;
+  color: ${({ theme }) => theme.colors.primaryColor};
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(250, 249, 249);
+  border-style: none;
+  border-radius: 10px;
+  box-shadow: 2px 4px 24px 2px rgba(129, 126, 126, 0.79);
+
+  ${({ error }) =>
+    error &&
+    css`
+      color: ${({ theme }) => theme.colors.errorColor};
+  `};
+
+  img {
+    width: 10%;
+    margin: 5%;
+  };
+
+`;
 
 export const StyledForm = styled.form`
   max-width: 60%;
