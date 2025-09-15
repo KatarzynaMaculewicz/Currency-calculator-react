@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Alert = styled.div`
+export const Wrapper = styled.div`
   max-width: 60%;
   margin: 0 auto;
   margin-top: 10%;
