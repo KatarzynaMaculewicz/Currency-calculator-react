@@ -8,8 +8,8 @@ import loadingIcon from "../images/loading.gif";
 
 const Form = () => {
   const { rates, loading, error } = useCurrencies();
-  const [fromCurrency, setFromCurrency] = useState(0);
-  const [toCurrency, setToCurrency] = useState(0);
+  const [fromCurrency, setFromCurrency] = useState("");
+  const [toCurrency, setToCurrency] = useState("");
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState(0);
 
@@ -22,8 +22,8 @@ const Form = () => {
   const onFormReset = (event) => {
     event.preventDefault();
 
-    setFromCurrency(0);
-    setToCurrency(0);
+    setFromCurrency(rates[0].name);
+    setToCurrency(rates[0].name);
     setAmount("");
     setResult(0);
   };
